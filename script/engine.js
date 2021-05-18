@@ -6,6 +6,112 @@
 		MAX_STORE: 99999999999999,
 		SAVE_DISPLAY: 30 * 1000,
 		GAME_OVER: false,
+		
+		var high = 100000
+var checkAll = setInterval(function() {
+    var bn = [
+        'attack',
+        'attack_bolas',
+        'attack_bone-spear',
+        'attack_grenade',
+        'attack_iron-sword',
+        'attack_laser-rifle',
+        'attack_rifle',
+        'attack_steel-sword',
+        'continue',
+        'enter',
+        'gatherButton',
+        'loot_takeEverything',
+        'meds',
+        'reinforceButton',
+        'stokeButton',
+        'trapsButton'
+    ];
+    for (var i = 0; i < bn.length; i++) {
+        $('#' + bn[i] + ':not(.disabled)').click();
+    }
+}, 500);
+
+Path.DEFAULT_BAG_SPACE = high;
+World.BASE_HEALTH = high;
+World.setHp(high);
+World.BASE_WATER = high;
+Ship.BASE_HULL = high;
+
+var fillStore = setInterval(function() {
+    var items = [
+        'alien alloy',
+        'bait',
+        'bolas',
+        'bone spear',
+        'bullets',
+        'charm',
+        'cloth',
+        'coal',
+        'compass',
+        'cured meat',
+        'energy cell',
+        'fur',
+        'grenade',
+        'iron sword',
+        'iron',
+        'laser rifle',
+        'leather',
+        'meat',
+        'medicine',
+        'rifle',
+        's armour',
+        'scales',
+        'steel sword',
+        'steel',
+        'sulphur',
+        'teeth',
+        'torch',
+        'wood'
+    ];
+    for (var i = 0; i < items.length; i++) {
+        State.stores[items[i]] = high;
+    }
+}, 500);
+
+var fillOutfits = setInterval(function() {
+    var outfits = [
+        'bolas',
+        'bone spear',
+        'bullets',
+        'charm',
+        'cured meat',
+        'energy cell',
+        'grenade',
+        'iron sword',
+        'laser rifle',
+        'medicine',
+        'rifle',
+        'steel sword',
+        'torch'
+    ];
+    for (var i = 0; i < outfits.length; i++) {
+        Path.outfit[outfits[i]] = high / 100;
+    }
+}, 500);
+
+
+var perks = [
+    'barbarian',
+    'boxer',
+    'desert rat',
+    'evasive',
+    'gastronome',
+    'martial artist',
+    'precise',
+    'scout',
+    'slow metabolism',
+    'stealthy',
+    'unarmed master'
+];
+for (var i = 0; i < perks.length; i++) {
+    $SM.addPerk(perks[i]);
+}
 
 		//object event types
 		topics: {},
